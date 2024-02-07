@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=2, minimum-scale=1, user-scalable=yes,shrink-to-fit=no">
+  <!--[if IE]>
+    <meta http-equiv= "X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+  <title>ex-morph</title>
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="css/morph.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
+  </script>
+  <style>
+    svg {
+      border: 2px solid #000;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="con1">
+    <svg width="300" height="300" viewBox="0 0 300 300" style="background-color: rgb(193, 221, 246);">
+      <path id="from_rect" d="M 0 300 L 0 0 L 300 0 L 0 0" fill="#fff">
+      </path>
+
+      <path id="to_rect" d="M 0 300 L 240 230 L 300 0 L 0 0" visibility="hidden">
+      </path>
+    </svg>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id maiores exercitationem, delectus aspernatur
+      veritatis totam. Fuga, neque nihil earum consectetur modi sint dolorem, error accusamus tenetur minima saepe
+      ducimus! Ex.
+    </p>
+    <button id="show" type="button">show</button>
+    <button id="close" type="button">close </button>
+
+  </div>
+  <div class="con2" >
+    <svg width="300" height="200" viewBox="0 0 300 200">
+      <path id="small" fill="gold" d="M105.7,112.1c3.3-0.1,6.8,0.1,9.9-0.3c3.5-0.5,6.9-1.4,10.1-2.6c8-3,13.6-7.3,19.5-13.3
+c4.5-4.5,9.8-9,16.2-9.6c7.1-0.6,13.8,4.1,17.7,10.1c1.9,2.9,3.2,6.1,4.3,9.4c1,3.1,1.2,7.1,2.9,10c3.6,6,9.9,11.8,10.3,19.2
+c0.4,7-4,14.2-10.5,17c-4.4,1.9-9.5,1.8-13.9-0.1c-4.4-1.9-6.6-6.2-10.4-9.2c-7.7-6.2-17.5-7.6-26.9-4.7c-13,4-28.8,17.3-40.5,2.6
+c-1.3-1.9-2.3-3.9-3-6c-0.7-2.1-1-4.3-1.1-6.5c-0.1-5.2,1.9-10.8,6.4-13.8C99.5,112.7,102.6,112.2,105.7,112.1z">
+      </path>
+
+      <path id="big" fill="gold" style="visibility:hidden"
+        d="M 6 1 C 102 1 198 1 294 1 C 294.3333 67.6667 294.6667 134.3333 295 201 C 198.3333 201 101.6667 201 5 201 C 5.3333 134.3333 5.6667 67.6667 6 1">
+      </path>
+    </svg>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id maiores exercitationem, delectus aspernatur
+      veritatis totam. Fuga, neque nihil earum consectetur modi sint dolorem, error accusamus tenetur minima saepe
+      ducimus! Ex.
+    </p>
+    <button id="show1" type="button">show</button>
+    <button id="close1" type="button">close </button>
+
+  </div>
+
+
+
+  <!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/kute.js@2.0.10/dist/kute.min.js'></script>
+
+  <script>
+   // from-show
+   var morphTo = KUTE.to(
+      '#from_rect',
+      { path: '#to_rect' },
+      { // options
+        easing: 'easingCubicInOut',
+        yoyo: false,
+        repeat: 0,
+        duration: 1000,
+        delay: 0
+      }
+    )/* .start(); */
+
+    $('#show').on('click touchstart', function () {
+      if (!morphTo.playing) {
+        morphTo.start();
+      }
+    }
+    );
+
+    // back-close
+    var morphBack = KUTE.to(
+      '#from_rect',
+      { path: '#from_rect' },
+      { // options
+        easing: 'easingCubicInOut',
+        yoyo: false,
+        repeat: 0,
+        duration: 1000,
+        delay: 0
+      }
+    )/* .start(); */
+
+    $('#close').on('click touchstart', function () {
+      if (!morphBack.playing) {
+        morphBack.start();
+      }
+    }
+    );
+  </script>
+
+
+  <script>
+    $(function () {
+      $('#show').on('click', function () {
+        $(this).hide();
+        setTimeout(function () {
+          $('.con1 p,#close').show();
+        }, 800);
+      });
+
+      $("#close").click(function () {
+        $('#close, .con1 p').fadeOut();
+        setTimeout(function () {
+          $('#show').show();
+        }, 500);
+      });
+    });
+  </script>
+
+
+
+<!-- con2 -->
+
+<script>
+  // from-show
+  var morphTo1 = KUTE.to(
+     '#small',
+     { path: '#big' },
+     { // options
+       easing: 'easingCubicInOut',
+       yoyo: false,
+       repeat: 0,
+       duration: 1000,
+       delay: 0
+     }
+   )/* .start(); */
+
+   $('#show1').on('click touchstart', function () {
+     if (!morphTo1.playing) {
+       morphTo1.start();
+     }
+   }
+   );
+
+   // back-close
+   var morphBack1 = KUTE.to(
+     '#small',
+     { path: '#small' },
+     { // options
+       easing: 'easingCubicInOut',
+       yoyo: false,
+       repeat: 0,
+       duration: 1000,
+       delay: 0
+     }
+   )/* .start(); */
+
+   $('#close1').on('click touchstart', function () {
+     if (!morphBack1.playing) {
+       morphBack1.start();
+     }
+   }
+   );
+ </script>
+
+
+  <script>
+    $(function () {
+      $('#show1').on('click', function () {
+        $(this).hide();
+        setTimeout(function () {
+          $('.con2 p, #close1').show();
+        }, 800);
+      });
+
+      $("#close1").click(function () {
+        $('#close1, .con2 p').fadeOut();
+        setTimeout(function () {
+          $('#show1').show();
+        }, 800);
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>

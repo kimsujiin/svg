@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="keyword" content="html5,css3,js,portfolio">
+  <meta name="description" content="portfolio">
+  <meta name="author" content="cocomiz">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="제목에 뜰 내용(굵은글씨)">
+  <meta property="og:url" content="링크걸릴주소">
+  <meta property="og:description" content="제목아래쪽에 한줄 나오는 짧은 소개글">
+  <meta property="og:image" content="썸네일이미지 경로">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=2, minimum-scale=1, user-scalable=yes,shrink-to-fit=no">
+  <title>svg-set-cho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="fonts/vicons/vicons-font.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/goo_menu.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
+  </script>
+  <style>
+    svg {
+      /* border: 1px solid #000; */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="menu-wrapper">
+      <ul class="menu-items">
+        <li class="menu-item">
+          <button type="button" class="menu-item-button">
+            <a href="#" class="menu-item-icon">menu01</a>
+          </button>
+          <div class="menu-item-bounce"></div>
+        </li><!--reply-->
+        <li class="menu-item">
+          <button type="button" class="menu-item-button">
+            <a href="#" class="menu-item-icon">menu02</a>
+          </button>
+          <div class="menu-item-bounce"></div>
+        </li><!--box-->
+        <li class="menu-item">
+          <button type="button" class="menu-item-button">
+            <a href="#" class="menu-item-icon ">menu03</a>
+          </button>
+          <div class="menu-item-bounce"></div>
+        </li><!--trash-->
+        <li class="menu-item">
+          <button type="button" class="menu-item-button">
+            <a href="#" class="menu-item-icon ">menu04</a>
+          </button>
+        <div class="menu-item-bounce"></div>
+      </li><!--menu04-->
+      </ul>
+      <button type="button" class="menu-toggle-button">
+        <i class="menu-toggle-icon">click</i>
+      </button>
+    </div>
+ 
+
+    <svg  viewBox=" 0 0 500 300">
+      <defs>
+        <filter id="goo" x="0" y="0"  >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="f_blur">
+          </feGaussianBlur>
+          <feColorMatrix in="f_blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo_matrix">
+          </feColorMatrix>
+          <feComposite in="SourceGraphic" in2="goo_matrix" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
+</div>
+  <script src="js/TweenMax.min.js"></script>
+  <script src="js/menu.js"></script>
+
+</body>
+
+</html>

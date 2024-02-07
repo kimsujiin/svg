@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keyword" content="html5,css3,js,portfolio">
+	<meta name="description" content="portfolio">
+	<meta name="author" content="cocomiz">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="제목에 뜰 내용(굵은글씨)">
+	<meta property="og:url" content="링크걸릴주소">
+	<meta property="og:description" content="제목아래쪽에 한줄 나오는 짧은 소개글">
+	<meta property="og:image" content="썸네일이미지 경로">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=2, minimum-scale=1, user-scalable=yes,shrink-to-fit=no">
+	<!--[if IE]>
+	<meta http-equiv= "X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<title>SVG-ANI01</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/grid.css" type="text/css">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+	</script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
+	</script>
+	<style>
+		svg {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+
+<body>
+	<svg id="back" width="100%" height="100%">
+		<defs>
+			<pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+				<path d="M 10 0 L 0 0 0 10" fill="none" stroke="#ccc" stroke-width="0.5" />
+			</pattern>
+			<pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+				<rect width="100" height="100" fill="url(#smallGrid)" />
+				<path d="M 100 0 L 0 0 0 100" fill="none" stroke="lightblue" stroke-width="1" />
+			</pattern>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#grid)" />
+	</svg>
+	<h1>SVG-ANI01</h1>
+	<h2>sum</h2>
+	<!-- <svg class="heart01_svg" width="500" height="500" viewbox="0 0 500 500">
+		<path d="M 100 107 A 1 1 0 0 1 199 29 A 1 1 0 0 1 295 101 L 205 190 L 100 107 Z">
+		</path>
+	 </svg> -->
+
+<!-- 예제1 -->
+<svg id="svg01" width="250" height="250" style="background-color: rgb(215, 206, 239);">
+	<defs>
+	<g id="circle01" style="fill: none;stroke:#000;stroke-width: 8px; ">
+<path d="M 128 31 A 1 1 0 0 0 127 220 A 1 1 0 0 0 128 31"></path>
+<path d="M 128 30 Q 59 129 128 221"></path>
+<path d="M 130 33 Q 192 127 130 218 M 128 34 Q 59 129 128 217"></path>
+<path d="M 36 126 L 219 126 M 128 34 Q 59 129 128 217"></path>
+</g>
+</defs>
+<use xlink:href="#circle01" style="transform-origin: center;">
+	<animateTransform
+	attributeName="transform"
+	type="rotate"
+	values="0;180;360"
+	dur="2s"
+	begin="svg01.click"
+	>
+	</animateTransform>
+</use>
+</svg>
+<h2>line circle-svg</h2>
+<svg width="300" height="300">
+	<defs>
+	<g id="all_line">
+	<g id="line02">
+	<g id="line01" style="fill: none; stroke:rgb(153, 206, 211);stroke-width: 8px; stroke-linecap: round;">
+	<line x1="40" y1="20" x2="40" y2="280"></line>
+</g>
+<use xlink:href="#line01" x="70"></use>
+</g>
+<use xlink:href="#line02" x="140"></use>
+</g>
+<g id="rect_ani" style="fill: rgb(248, 240, 148);">
+<rect x="24" y="40" width="35" height="35">
+ <animate
+ attributeName="rx"
+ values="0;35;0"
+ dur="2s"
+ repeatCount="indefinite"
+ >
+ </animate>
+ <animate
+ attributeName="ry"
+ values="0;35;0"
+ dur="2s"
+ repeatCount="indefinite"
+ >
+ </animate>
+</rect>
+</g>
+</defs>
+<use xlink:href="#all_line"></use>
+
+<!-- rect1 -->
+<use xlink:href="#rect_ani">
+	<animate
+	attributeName="y"
+	values="0;190;0"
+	dur="2s"
+	repeatCount="indefinite"
+	>
+	</animate>
+</use>
+<!-- rect2 -->
+<use xlink:href="#rect_ani" x="70">
+	<animate
+	attributeName="y"
+	values="180;10;180"
+	dur="2s"
+	repeatCount="indefinite"
+	>
+	</animate>
+</use>
+<!-- rect3 -->
+<use xlink:href="#rect_ani" x="140">
+	<animate
+	attributeName="y"
+	values="60;190;20"
+	dur="2s"
+	repeatCount="indefinite"
+	>
+	</animate>
+</use>
+<!-- rect4 -->
+<use xlink:href="#rect_ani" x="210">
+	<animate
+	attributeName="y"
+	values="0;190;0"
+	dur="2s"
+	repeatCount="indefinite"
+	>
+	</animate>
+</use>
+</svg>
+
+<!-- new -->
+<svg width="600" height="500">
+<g  id="move_line" style="fill: none;stroke:#000">
+<path id="move_path" d="M 57 101 C 197 41 112 202 249 231 A 1 1 0 0 0 442 337 C 499 205 389 163 522 73">
+</path>
+</g>
+<rect x="10" y="-10" width="30" height="30">
+	<animateMotion
+	path="M 57 101 C 197 41 112 202 249 231 A 1 1 0 0 0 442 337 C 499 205 389 163 522 73"
+	dur="5s"
+	rotate="auto"
+	repeatCount="indefinite"
+	fill="freeze"
+	>
+	</animateMotion>
+</rect>
+</svg>
+
+<!-- heart -->
+<svg width="250" height="250" style="background-color: rgb(241, 203, 174);">
+<defs>
+<path d="M 129 64 C 144 57 171.6667 40.6667 182 40 C 204 37 222 47 232 69 C 235 106 213 134 205 146 C 196 160 182 175 167 191 C 149 207 143 211 131 214 C 109 207 106 199 79 177 C 69 164 62 158 52 141 C 44 128 27 109 29 73 C 37 53 45 44 72 41 C 101 43 107.3333 53 129 64 Z"></path>
+</defs>
+<g id="star">
+<path d="M 129 64 C 150.3333 52.3333 171.6667 40.6667 193 29 C 189.6667 52.3333 186.3333 75.6667 183 99 C 200 116.3333 217 133.6667 234 151 C 210.6667 155 187.3333 159 164 163 C 153 184.6667 142 206.3333 131 228 C 120 207 109 186 97 164 C 74.6667 161.6667 51.3333 158.3333 28 155 C 44.3333 137.6667 60.6667 120.3333 77 103 C 72.6667 79 68.3333 55 64 31 C 85.6667 42 107.3333 53 129 64 Z">
+	<animate
+	attributeName="d"
+	values="M 129 64 C 150.3333 52.3333 171.6667 40.6667 193 29 C 189.6667 52.3333 186.3333 75.6667 183 99 C 200 116.3333 217 133.6667 234 151 C 210.6667 155 187.3333 159 164 163 C 153 184.6667 142 206.3333 131 228 C 120 207 109 186 97 164 C 74.6667 161.6667 51.3333 158.3333 28 155 C 44.3333 137.6667 60.6667 120.3333 77 103 C 72.6667 79 68.3333 55 64 31 C 85.6667 42 107.3333 53 129 64 Z;M 129 64 C 144 57 171.6667 40.6667 182 40 C 204 37 222 47 232 69 C 235 106 213 134 205 146 C 196 160 182 175 167 191 C 149 207 143 211 131 214 C 109 207 106 199 79 177 C 69 164 62 158 52 141 C 44 128 27 109 29 73 C 37 53 45 44 72 41 C 101 43 107.3333 53 129 64 Z; M 129 64 C 150.3333 52.3333 171.6667 40.6667 193 29 C 189.6667 52.3333 186.3333 75.6667 183 99 C 200 116.3333 217 133.6667 234 151 C 210.6667 155 187.3333 159 164 163 C 153 184.6667 142 206.3333 131 228 C 120 207 109 186 97 164 C 74.6667 161.6667 51.3333 158.3333 28 155 C 44.3333 137.6667 60.6667 120.3333 77 103 C 72.6667 79 68.3333 55 64 31 C 85.6667 42 107.3333 53 129 64 Z "
+	dur="3s"
+	begin="click"
+
+	>
+	</animate>
+</path>
+</g>
+</svg>
+<!-- star2 -->
+<svg width="250" height="250">
+	<use xlink:href="#star" style="transform-origin: center;">
+		<animateTransform
+		attributeName="transform"
+		type="rotate"
+		values="0;180;360"
+		dur="3s"
+		begin="click"
+		> 
+		</animateTransform>
+	</use>
+</svg>
+<h2>text_ani</h2>
+<svg width="500" height="500">
+<defs>
+<path id="text_line" d="M100,250 C 100,50 400,50 400,250"></path>
+</defs>
+<text>
+	<textPath xlink:href="#text_line" style="font-size: 1.6rem;" startOffset="20%">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam officia molestias nisi delectus repudiandae doloremque fugit, repellendus doloribus consequuntur officiis, dolores numquam autem odit aperiam! Quisquam adipisci nulla quaerat ea!
+		<animate
+		attributeName="startOffset"
+		values="0%;50%;0%"
+		dur="5s"
+		repeatCount="indefinite"
+		>
+		</animate>
+		<animate
+		attributeName="letter-spacing"
+		values="0;20;0"
+		dur="6s"
+		repeatCount="indefinite"
+		>
+		</animate>
+	</textPath>
+</text>
+</svg>
+<h2>ex</h2>
+<svg width="600" height="500">
+	<text>
+		<textPath xlink:href="#move_path">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iste in veritatis sed, totam non officia. Deserunt doloremque fugiat, exercitationem cum nostrum aspernatur suscipit cupiditate odit ullam. Commodi, ea praesentium.
+			<animate
+			attributeName="startOffset"
+			values="0%;30%;100%"
+			dur="10s"
+			repeatCount="indefinite"
+			>
+			</animate>
+			<animate
+			attributeName="font-size"
+			values="1.5rem;5rem;7rem"
+			dur="10s"
+			repeatCount="indefinite"
+			> 
+			</animate>
+		</textPath>
+	</text>
+</svg>
+</body>
+
+</html>

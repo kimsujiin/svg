@@ -1,0 +1,126 @@
+@charset "utf-8";
+body{
+  font-size: 2rem;
+}
+
+.box1{
+  width: 200px;
+  height: 600px;
+  border: 2px solid #000;
+  font-size: 1.4rem;
+  margin: 50px;
+  perspective: 400px;
+  transform-style: preserve-3d;
+}
+
+.box1 p{
+  width: 150px;
+  height: 150px;
+  background-color: mistyrose;
+  margin-bottom: 20px;
+  transition: all 0.5s ease 0s; 
+  
+}
+
+.box1:hover p{
+  transform: perspective(400px) rotateY(45deg);
+  letter-spacing: 4px;
+}
+ 
+.card{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000 ;
+  margin: 50px;
+  text-align: center;
+  font-size: 3rem;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+.front{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(225, 187, 227);
+  padding-top: 30px;
+  transition: all 0.5s ease 0s;
+  backface-visibility: hidden;
+}
+
+.back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(97, 107, 178);
+  padding-top: 30px;
+  transform: rotateX(-180deg);
+  backface-visibility: hidden;
+  transition: all 0.5s ease 0s;
+}
+
+.card:hover .back{
+  transform: rotateX(0deg);
+}
+.card:hover .front{
+  transform: rotateX(180deg);
+}
+
+.rotate_box{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  margin: 200px;
+  perspective: 5000px;
+  transform-style: preserve-3d;
+  transition: all 4s ease 0s;
+  font-size: 8rem;
+  text-align: center;
+  transform: rotateY(30deg) rotateX(-20deg); 
+}
+.rotate_box:hover{
+  transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);  
+  /*rotate 는 한꺼번에 rotate 3d 주지않는것을 권장 헷갈릴 수 있음*/
+}
+
+.rotate_box>div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.rotate_box>div:nth-child(1){
+  transform: rotateY(0deg) translate3d(0px,0px,100px);
+  background-color: yellowgreen;
+}
+.rotate_box>div:nth-child(2){
+  transform: rotateY(90deg) translate3d(0px,0px,100px);
+  background-color: rgb(50, 182, 205);
+}
+.rotate_box>div:nth-child(3){
+  transform: rotateY(180deg) translate3d(0px,0px,100px);
+  background-color: rgb(120, 50, 205);
+}
+.rotate_box>div:nth-child(4){
+  transform: rotateY(270deg) translate3d(0px,0px,100px);
+  background-color: rgb(205, 50, 184);
+}
+.rotate_box>div:nth-child(5){
+  transform: rotateX(90deg) translate3d(0px,0px,100px);
+  background-color: rgb(235, 177, 3);
+}
+.rotate_box>div:nth-child(6){
+  transform: rotateX(-90deg) translate3d(0px,0px,100px);
+  background-color: rgb(3, 42, 235);
+}
+
+
+
+.end{
+  margin-top: 100px;
+}

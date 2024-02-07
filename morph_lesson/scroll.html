@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=2, minimum-scale=1, user-scalable=yes,shrink-to-fit=no">
+  <!--[if IE]>
+    <meta http-equiv= "X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+  <title>ex-morph</title>
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!--필수속성-->
+  <link rel="stylesheet" href="css/scroll.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js">
+  </script>
+
+</head>
+
+<body>
+  <!-- <div
+  data-aos="fade-up"
+  data-aos-offset="200"
+  data-aos-delay="50"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out"
+  data-aos-mirror="true"
+  data-aos-once="false"
+  data-aos-anchor-placement="top-center"
+>
+</div> -->
+  <header>
+    <h1 class="ml1">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters">THURSDAY</span>
+        <span class="line line2"></span>
+      </span>
+    </h1>
+    <nav>
+      <h2>navigation</h2>
+    </nav>
+  </header>
+  <main>
+    <section class="con1">
+      <h2>con1</h2>
+      <video class="mov_back" poster="" autoplay muted loop controls playsinline>
+        <source src="images/zara.mp4">
+      </video>
+    </section>
+    <section class="con2">
+      <h2>con2</h2>
+      <div class="con2_slide_left" data-aos="slide-left" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
+        data-aos-duration="1000" data-aos-easing="ease-in-out">
+        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+              <stop id="stop1" stop-color="rgba(239.774, 102.811, 37.988, 1)" offset="0%"></stop>
+              <stop id="stop2" stop-color="rgba(230.418, 179.864, 171.797, 1)" offset="100%"></stop>
+            </linearGradient>
+          </defs>
+          <path fill="url(#sw-gradient)"
+            d="M22.8,-22C28.6,-17.1,31.6,-8.5,31.7,0.1C31.8,8.8,29,17.5,23.3,23.6C17.5,29.8,8.8,33.3,0.7,32.6C-7.4,31.9,-14.9,27.1,-21.1,21C-27.3,14.9,-32.3,7.4,-32.4,-0.1C-32.5,-7.6,-27.7,-15.3,-21.5,-20.3C-15.3,-25.2,-7.6,-27.5,0.4,-28C8.5,-28.4,17.1,-27,22.8,-22Z"
+            width="100%" height="100%" transform="translate(50 50)" stroke-width="0"
+            style="transition: all 0.3s ease 0s;"></path>
+        </svg>
+      </div>
+    </section>
+    <section class="con3">
+      <h2>con3</h2>
+    </section>
+    <section class="con4">
+      <h2>con4</h2>
+    </section>
+    <section class="con5">
+      <h2>con5</h2>
+    </section>
+  </main>
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <!--필수속성-->
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<!-- <script>
+  // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: (el, i) => 70 * (i+1)
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: (el, i, l) => 80 * (l - i)
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script> -->
+<script>
+  const textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+const timeline = anime.timeline({ loop: false });
+timeline.add({
+targets: '.ml1 .letter',
+translateY: ["1.1em", 0],
+translateZ: 0,
+duration: 750,
+delay: (el, i) => 50 * i
+}).add({
+targets: '.ml1',
+opacity: 1,
+duration: 1000,
+easing: "easeOutExpo",
+delay: 1000
+});
+
+const element = document.querySelector('.ml1');
+element.addEventListener('click', function() {
+timeline.restart();
+});
+</script>
+</body>
+
+</html>

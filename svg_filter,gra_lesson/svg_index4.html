@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>svg-index</title>
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <style type="text/css">
+    svg {
+      border: 1px solid #000
+    }
+
+    #back {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -99;
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg id="back" width="100%" height="100%">
+    <defs>
+      <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#ccc" stroke-width="0.5" />
+      </pattern>
+      <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#smallGrid)" />
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="lightblue" stroke-width="1" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+  </svg>
+
+  <!-- 필터 -->
+  <svg width="300" height="300">
+    <filter id="f_blur" x="-30" y="-30" width="300" height="300">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10">
+      </feGaussianBlur>
+    </filter>
+    <rect filter="url(#f_blur)" x="40" y="40" width="100" height="100"></rect>
+  </svg>
+
+  <!-- 필터 offset -->
+  <svg width="300" height="300">
+    <filter id="f_off" x="0" y="0" width="300" height="300">
+      <feOffset x="0" y="0" dx="40" dy="40" in="SourceGraphic">
+      </feOffset>
+    </filter>
+    <rect filter="url(#f_off)" x="0" y="0" width="100" height="100"></rect>
+  </svg>
+
+
+  <!-- <img class="img01" src="images_f/hamburg-3846525_1920.jpg" alt="im
+    
+        g01">
+
+
+        
+  <style>
+    .img01{
+      filter: url(#f_blur);
+    }
+    .img01:hover{
+      filter: none;
+    }
+  </style> -->
+
+  <!-- offset -->
+  <svg width="300" height="300">
+    <defs>
+      <filter id="off01" x="0" y="0" width="300" height="300">
+        <feOffset x="0" y="0" dx="40" dy="40" in="SourceGraphic">
+        </feOffset>
+      </filter>
+    </defs>
+    <rect filter="url(#off01)" x="0" y="0" width="150" height="150">
+    </rect>
+  </svg>
+
+  <h2>blend-offset</h2>
+  <svg width="300" height="300">
+    <filter id="b_off" x="0" y="0" width="300" height="300">
+      <feOffset x="0" y="0" dx="40" dy="40" in="SourceGraphic" result="off01">
+      </feOffset>
+      <feBlend in="off01" in2="SourceGraphic" mode="normal">
+      </feBlend>
+    </filter>
+    <rect filter="url(#b_off)" fill="gold" x="0" y="0" width="150" height="150" stroke="#000" stroke-width="3px"></rect>
+  </svg>
+
+  <h2>blend-offset+blur</h2>
+  <svg width="300" height="300">
+    <defs>
+      <filter id="db_f" x="0" y="0" width="300" height="300">
+        <feOffset x="0" y="0" dx="40" dy="40" in="SourceGraphic" result="off2">
+        </feOffset>
+        <feGaussianBlur in="off2" stdDeviation="7" result="b_f02">
+        </feGaussianBlur>
+        <feBlend in="SourceGraphic" in2="b_f02" mode="normal"></feBlend>
+      </filter>
+    </defs>
+    <rect filter="url(#db_f)" x="0" y="0" width="150" height="150" stroke="#000" stroke-width="3px" fill="gold">
+    </rect>
+  </svg>
+
+<!-- review -->
+<svg width="300" height="300">
+  <defs>
+  <filter id="off_b04" x="0" y="0" width="300" height="300">
+    <feOffset x="0" y="0" dx="40" dy="40" in="SourceGraphic" result="off_04"> 
+    </feOffset>
+    <feGaussianBlur in="off_04" stdDeviation="7" result="off_blur04">
+    </feGaussianBlur>
+    <feBlend in="SourceGraphic" in2="off_blur04" mode="normal"></feBlend>
+  </filter>
+</defs>
+<rect filter="url(#off_b04)" x="0" y="0" width="150" height="150" stroke="#000" stroke-width="3px" fill="greenyellow"></rect>
+</svg>
+
+<!-- feflood  -->
+<svg width="300" height="300"> 
+  <filter id="kuler" x="-1" y="-1" width="300" height="300">
+    <feFlood x="0" y="0" width="300" height="300" style="flood-color: darksalmon; flood-opacity: 0.5;">
+    </feFlood>
+  </filter>
+
+<rect filter="url(#kuler)" x="20" y="20" width="150" height="150" fill="plum">
+</rect>
+
+</svg>
+<div class="box1">
+  box1
+</div>
+<style>
+  .box1{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    margin: 40px;
+    background: #ccf;
+    filter: drop-shadow(30px 30px 5px rgba(77, 18, 126, 0.7));
+  }
+</style>
+</body>
+
+</html>

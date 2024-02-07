@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+		.mon01{
+			background-color: rgb(0, 118, 208);
+		}
+		.mon01 .face{
+			fill: rgb(248, 236, 107);
+		  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.6));
+		}
+		.mon01 .left_leg,.right_leg{
+			fill: rgb(248, 236, 107);
+		}
+
+    .mon01 .big_eye{
+      fill: #fff;
+      filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.6));
+    }
+    .mon01 .mouth{
+      fill: none; stroke: #000; stroke-width: 3px;
+      stroke-linecap: round;
+    }
+
+    .mon01 ellipse{
+      fill: #000;
+      fill-opacity: 0.3;
+    }
+
+    .mon01 .top{
+      fill:  rgb(248, 236, 107);
+      transform: scale(1,0);
+      transition: all 0.3s ease 0s;
+      transform-origin: center 30%;
+    }
+    .mon01 .bottom{
+      fill:  rgb(248, 236, 107);
+      transition: all 0.3s ease 0s;
+      transform: scale(1,0);
+      transform-origin: center 67%;
+    }
+
+    .mon01:hover .top{
+      transform: scale(1,1);
+    }
+    .mon01:hover .bottom{
+      transform: scale(1,1);
+    }
+
+    /* mon2 */
+
+.mon02{
+  background-color: rgb(139, 43, 168);
+}
+.mon02 .face{
+  fill:rgb(156, 204, 45);
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.6));
+  transition: all 0.5s ease 0.3s;
+}
+.mon02 .left_leg{
+  fill:rgb(156, 204, 45);
+  transition: all 0.5s ease 0s;
+}
+.mon02 .right_leg{
+  fill:rgb(156, 204, 45);
+  transition: all 0.5s ease 0s;
+}
+.mon02 .big_eye{
+  fill: #fff;
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.6));
+}
+.mon02 .mouth{
+  fill:rgb(156, 204, 45); stroke: #000; stroke-width: 3px;
+  stroke-linecap: round;
+  transition: all 0.5s ease 0.3s;
+}
+.mon02 ellipse{
+  fill: #000;
+  fill-opacity: 0.3;
+}
+
+.mon02 .v{
+  fill: rgb(156, 204, 45);
+  filter: drop-shadow(0px 1.3px 0.5px rgba(0,0,0,0.6));
+  transition: all 0.5s ease 0.3s;
+}
+
+.mon02:hover .v{
+  d:path("M 85,78 L 125,112 L 160,80");
+  fill: rgb(238, 58, 26);
+}
+
+.mon02:hover .mouth{
+  d:path("M 90 163 Q 131 135 160 163");
+  fill: rgb(238, 58, 26);
+}
+
+.mon02:hover .face{
+  transform: skew(2deg, -1deg);
+  fill: rgb(238, 58, 26);
+}
+.mon02:hover .left_leg{
+  fill: rgb(238, 58, 26);
+}
+.mon02:hover .right_leg{
+  fill: rgb(238, 58, 26);
+}
+
+.under{
+  width: 150px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.under>a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 2rem;
+}
+
+.under>a::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3%;
+  background-color: hotpink;
+  margin-top: -15px;
+  transition: all 0.3s ease 0s;
+  transform: scale(0,1);
+  transform-origin: center;
+}
+.under>a:hover::after{
+  transform: scale(1,1);
+}
+
+.img_box{
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  overflow: hidden;
+  transition: all 0.2s ease 0s;
+  transform-origin: center;
+}
+
+.img_box:hover img{
+  transform: scale(1,2);
+}
+
+.down_box{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  background: url(../images/03-screenshot.png);
+  overflow: hidden;
+}
+
+.cover{
+  position: absolute;
+  top: -300px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(242, 242, 96, 0.838);
+  transition: all 0.3s ease 0s;
+}
+
+.down_box p{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -200px;
+  font-size: 6rem;
+  font-weight: 900;
+  color: cornflowerblue;
+  transition: all 0.3s ease 0s;
+}
+
+.down_box:hover .cover{
+  transform: translateY(300px);
+}
+
+.down_box:hover p{
+  left: 50%;
+  transform: translate(-50%,300px);
+}
+
+.skill_box{
+  width: 600px;
+  height: 300px;
+  border: 2px solid #000;
+  margin: 30px;
+  padding: 10px;
+  font-size: 1.6rem;
+}
+
+.skill_box>p:nth-child(1){
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+.skill_box:hover p:nth-child(1){
+  width: 200px;
+}
+
+.skill_box>p:nth-child(2){
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  text-align: center;
+  transition: all 0.5s ease 0.2s;
+}
+
+.skill_box:hover p:nth-child(2){
+  width: 400px;
+}
+
+.skill_box>p:nth-child(3){
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  text-align: center;
+  transition: all 0.5s ease 0.4s;
+}
+
+.skill_box:hover p:nth-child(3){
+  width: 500px;
+}
+
+.skill_box>p:nth-child(4){
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+
